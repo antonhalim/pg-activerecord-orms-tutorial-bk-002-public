@@ -2,8 +2,8 @@ require 'bundler/setup'
 Bundler.require
 
 ActiveRecord::Base.establish_connection(
-  :adapter => "postregsql",
-  :host => "locahost",
+  :adapter => "postgresql",
+  :host => "localhost",
   :database => "artists_development"
 )
 
