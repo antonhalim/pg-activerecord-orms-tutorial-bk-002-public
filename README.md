@@ -144,7 +144,7 @@ Executed migrations are tracked by ActiveRecord in your database, so they aren't
 2) In the migrate directory, create a file called '01_create_artists.rb' (we'll talk about why we added the 01 later).
 
 ```ruby
-# migrate/01_create_artists.rb
+# db/migrate/01_create_artists.rb
 
 class CreateArtists < ActiveRecord::Migration
   def up
@@ -160,7 +160,7 @@ Here we're creating a class called `CreateArtists` which inherits from ActiveRec
 Another method is available to use besides `up` and `down`: `change`, which is more common for basic migrations.
 
 ```ruby
-# migrate/01_create_artists.rb
+# db/migrate/01_create_artists.rb
 
 class CreateArtists < ActiveRecord::Migration
   def change
@@ -172,7 +172,7 @@ end
 Which is just short for do this, and then undo it on rollback. Let's look at creating the rest of the migration to generate our artists table and add some columns.
 
 ```ruby
-# migrations/01_create_artists.rb
+# db/migrate/01_create_artists.rb
 def change
   create_table :artists do |t|
   end
@@ -184,7 +184,7 @@ Here we've added the create_table method, and passed the name of the table we wa
 No point in having a table that has no columns in it, so lets add a few:
 
 ```ruby
-# migrate/01_create_artists.rb
+# db/migrate/01_create_artists.rb
 
 class CreateArtists < ActiveRecord::Migration
   def change
@@ -310,7 +310,7 @@ Here is another place where migrations really shine. Let's add a gender column t
 To make this change we're going to need a new migration, which we'll call `02_add_gender_to_artists.rb`.
 
 ```ruby
-# migrate/02_add_gender_to_artists.rb
+# db/migrate/02_add_gender_to_artists.rb
 
 class AddGenderToArtists < ActiveRecord::Migration
   def change
